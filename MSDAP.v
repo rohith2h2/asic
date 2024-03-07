@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
 // Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
