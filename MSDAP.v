@@ -122,15 +122,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/15/2023 06:24:14 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: serial_Input        //Serial Input Parallel Output
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module converts serial input to parallel output. 
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
@@ -140,7 +140,6 @@ endmodule
 // Additional Comments: 
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module serial_Input(
     input frame_Edg,
@@ -244,15 +243,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/15/2023 06:36:14 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: rj_Memory
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module stores Rj values from the data file. 
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
@@ -356,15 +355,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/15/2023 01:26:04 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: coeffecient_Memory
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module stores coeffecient values from the data file. 
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
@@ -374,7 +373,6 @@ endmodule
 // Additional Comments: 
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module coeffecient_Memory(
     input en,
@@ -470,15 +468,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/16/2023 03:56:24 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: input_Memory
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module stores input values from the data file. 
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
@@ -652,15 +650,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/18/2023 12:29:24 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: ALU
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module represents Arithmetic Logic Unit, which performs all arithmetic operations. 
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
@@ -670,7 +668,6 @@ endmodule
 // Additional Comments: 
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module ALU(
     input sClk, 
@@ -1151,15 +1148,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/18/2023 09:31:45 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: controller
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module is the main controller for MSDAP 
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
@@ -1169,7 +1166,6 @@ endmodule
 // Additional Comments: 
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module controller(
     input reset,
@@ -2580,15 +2576,15 @@ endmodule
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: The University of Texas at Dallas
-// Engineer: IXM210022, RXN220024, BXR190013
+// Engineer: RXN220024
 // 
-// Create Date: 04/18/2023 07:31:45 PM
+// Create Date: 04/15/2023 06:04:14 PM
 // Design Name: Mini Stereo - Digital Audio Processor
-// Module Name: serial_Output
+// Module Name: MSDAP
 // Project Name: EEDG 6306 ASIC - MSDAP
 // Target Devices: -
 // Tool Versions: -
-// Description: This module converts serial parallel to serial output.  
+// Description: A top-level module is one which instantiates all other modules. 
 
 // 
 // Dependencies: NONE
