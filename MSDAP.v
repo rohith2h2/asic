@@ -19,7 +19,12 @@
 // Additional Comments: 
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`include serial_Input.sv
+`include rj_Memory.sv
+`include coefficient_Memory.sv
+`include input_Memory.sv
+`include ALU.sv
+`include serial_Output.sv
 
 module MSDAP(
     input reset,
@@ -85,22 +90,20 @@ coeffecient_Memory  	coeffR_Mem  (.start(start), .en(n5R), .rd_Addr(o7R), .wr_Ad
 
 
 input_Memory	inputL_mem  (.sClk(sClk), .start(start), .reset(reset), .cntrl_rst(m6), .rd_En(n10L), .wr_En(n9L), .rd_Addr(o10L), .wr_Addr(o9L), .data_In(o1L ), .data_Out(o4L), .sleep(n12L),
-
-			    .w_Done(n11L), .data_Valid(n17L) );
+			     .w_Done(n11L), .data_Valid(n17L) );
 
 input_Memory	inputR_mem  (.sClk(sClk), .start(start), .reset(reset), .cntrl_rst(m6), .rd_En(n10R), .wr_En(n9R), .rd_Addr(o10R), .wr_Addr(o9R), .data_In(o1R), .data_Out(o4R), .sleep(n12R),
-
-			    .w_Done(n11R), .data_Valid(n17R) );
+			     .w_Done(n11R), .data_Valid(n17R) );
 
 
 ALU		 ALU_L  (.sClk(sClk), .reset(reset), .en(m5), .start(start), .sleep(m7), .rj_En(n14L), .rr_Ptr(o5L), .r_Valid(n19L), .rj_Data_In(o2L), .h_En(n16L), .hr_Ptr(o7L),
-
-			.h_Valid(n18L),	.h_Data_In(o3L), .x_Rd_En(n10L), .xr_Ptr(o10L), .x_Data_In(o4L), .x_FlagBit(m8), .n(p_Slp), .valid(n20L), .prev_OutReady(n21L), .y(o11L) );
+			 .h_Valid(n18L),	.h_Data_In(o3L), .x_Rd_En(n10L), .xr_Ptr(o10L), .x_Data_In(o4L), .x_FlagBit(m8), .n(p_Slp), .valid(n20L), .prev_OutReady(n21L), .y(o11L) 
+			);
 
 
 ALU		ALU_R  (.sClk(sClk), .reset(reset), .en(m5), .start(start), .sleep(m7),.rj_En(n14R), .rr_Ptr(o5R), .r_Valid(n19R), .rj_Data_In(o2R),.h_En(n16R), .hr_Ptr(o7R),
-
-			.h_Valid(n18R), .h_Data_In(o3R), .x_Rd_En(n10R), .xr_Ptr(o10R), .x_Data_In(o4R), .x_FlagBit(m8), .n(p_Slp), .valid(n20R), .prev_OutReady(n21R), .y(o11R) );
+			.h_Valid(n18R), .h_Data_In(o3R), .x_Rd_En(n10R), .xr_Ptr(o10R), .x_Data_In(o4R), .x_FlagBit(m8), .n(p_Slp), .valid(n20R), .prev_OutReady(n21R), .y(o11R) 
+		       );
 
 
 serial_Output		serial_Output_L (.en(m9), .sClk(sClk), .start(start), .data_In(o11L), .word_Sent(n22L), .data_Out(outputL) );
@@ -108,13 +111,11 @@ serial_Output		serial_Output_L (.en(m9), .sClk(sClk), .start(start), .data_In(o1
 serial_Output		serial_Output_R (.en(m9), .sClk(sClk), .start(start), .data_In(o11R), .word_Sent(n22R), .data_Out(outputR) );
 
 
-controller 	Control  	(.reset(reset), .frame(frame), .frame_Edg(m2), .start(start), .inReady(inReady), .outReady(outReady), .sClk(sClk), .w_Ready(m3), .rj_EnL(n13L),
-
-				.rj_EnR(n13R), .rj_Rst(m4), .rj_WrL(n3L), .rj_WrR(n3R), .rw_Ptr_L(o6L), .rw_Ptr_R(o6R), .h_EnL(n15L), .h_EnR(n15R), .h_Rst(m11), .h_WrL(n6L),
-
-				.h_WrR(n6R), .hw_Ptr_L(o8L), .hw_Ptr_R(o8R), .x_Rst(m6), .x_Wr_EnL(n9L), .x_Wr_EnR(n9R), .xw_Ptr_L(o9L), .xw_Ptr_R(o9R), .x_FlagBit(m8),
-
-				.ALU_En(m5), .n(p_Slp), .prev_OutReady(m12), .serial_Output_En(m9), .word_Sent(m10), .parallel_Input_Rst(m1), .sleep(m7), .done_L(n8L), .done_R(n8R) );
+controller 	Control (.reset(reset), .frame(frame), .frame_Edg(m2), .start(start), .inReady(inReady), .outReady(outReady), .sClk(sClk), .w_Ready(m3), .rj_EnL(n13L),
+			 .rj_EnR(n13R), .rj_Rst(m4), .rj_WrL(n3L), .rj_WrR(n3R), .rw_Ptr_L(o6L), .rw_Ptr_R(o6R), .h_EnL(n15L), .h_EnR(n15R), .h_Rst(m11), .h_WrL(n6L),
+			 .h_WrR(n6R), .hw_Ptr_L(o8L), .hw_Ptr_R(o8R), .x_Rst(m6), .x_Wr_EnL(n9L), .x_Wr_EnR(n9R), .xw_Ptr_L(o9L), .xw_Ptr_R(o9R), .x_FlagBit(m8),
+			 .ALU_En(m5), .n(p_Slp), .prev_OutReady(m12), .serial_Output_En(m9), .word_Sent(m10), .parallel_Input_Rst(m1), .sleep(m7), .done_L(n8L), .done_R(n8R) 
+			);
 
     
 endmodule
